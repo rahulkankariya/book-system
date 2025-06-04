@@ -12,6 +12,9 @@ app.use(middleware.verifyToken)
 
 app.use("/api/v1", v1Routes);
 
+app.use((err, req, res, next) => {
+  res.status(500).json({ message: 'Internal Server Error', error: err.message });
+});
 app.listen(3000, () => {
   console.log(`Server running on port 3000`);
 });

@@ -1,8 +1,7 @@
 const appConstant = require('../common/appConstant');
 const jwt = require('jsonwebtoken')
 const  CryptoJS = require("crypto-js");
-const storeProcudures = require('../common/storeProdure')
-const database = require('../common/database')
+
 module.exports = {
     encryptPassword :(password)=>{
         const ciphertext = CryptoJS.AES.encrypt(password, appConstant.PASSWORDKEY).toString();

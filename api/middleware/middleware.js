@@ -2,7 +2,7 @@ const config = require('../common/config')
 const appConstant = require('../common/appConstant')
 var noLoginNeeded = require('../common/apiConfig');
 const jwt = require('jsonwebtoken');
-const commonHelper = require('../common/commonHelper');
+const utils = require('../utils/utils');
 const message = require('../common/message')
 module.exports = {
     verifyToken:(req,res,next)=>{
@@ -30,7 +30,7 @@ module.exports = {
                             
                         } else {
                             req.decoded = data; 
-                            let userData = await commonHelper.validateToken(req,res);
+                            let userData = await utils.validateToken(req,res);
                          
                             if(userData.executed == 1){
                                 next();
